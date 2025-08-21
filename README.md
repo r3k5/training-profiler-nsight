@@ -1,4 +1,5 @@
 ﻿# Training Profiler with Nsight Systems (Windows)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
 This repo provides a **minimal PyTorch training loop** instrumented with **NVTX ranges**, plus **one-click profiling** using **NVIDIA Nsight Systems**. It automatically exports **kernel/API summaries** (CSV), a **Top-10 kernels chart**, and a ready-to-paste **README snippet** for reports or PRs.
 
@@ -200,7 +201,7 @@ git commit -m "Nsight profile: CSVs + plot + scripts"
 
 ## License
 
-MIT. See LICENSE.
+This project is licensed under the MIT License — see the [LICENSE](LICENSE) file for details.
 
 ---
 
