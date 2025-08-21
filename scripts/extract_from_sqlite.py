@@ -1,3 +1,6 @@
+# SPDX-License-Identifier: MIT
+# Copyright (c) 2025 Mike Davis
+
 import sys, os, sqlite3, csv
 from pathlib import Path
 

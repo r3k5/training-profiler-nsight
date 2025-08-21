@@ -1,3 +1,6 @@
+:: SPDX-License-Identifier: MIT
+:: Copyright (c) 2025 Mike Davis
+
 @echo off
 setlocal enabledelayedexpansion
 

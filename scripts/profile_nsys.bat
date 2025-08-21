@@ -1,3 +1,6 @@
+:: SPDX-License-Identifier: MIT
+:: Copyright (c) 2025 Mike Davis
+
 @echo off
 if not exist results mkdir results
 set "NSYS=C:\Program Files\NVIDIA Corporation\Nsight Systems 2025.5.1\target-windows-x64\nsys.exe"

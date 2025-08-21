@@ -1,3 +1,6 @@
+# SPDX-License-Identifier: MIT
+# Copyright (c) 2025 Mike Davis
+
 # -*- coding: utf-8 -*-
 import os, re, pandas as pd
 
