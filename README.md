@@ -16,27 +16,34 @@ This repo provides a **minimal PyTorch training loop** instrumented with **NVTX 
 
 ---
 
-## Repo layout
+## Repo Layout
+<details>
+  <summary><b>Repo layout</b></summary>
+
+```text
 training-profiler-nsight/
 ├─ src/
-│ └─ train.py # tiny Transformer w/ NVTX ranges
+│  ├─ model.py
+│  └─ train.py
 ├─ scripts/
-│ ├─ run_all.bat # one click: clean + profile + export + snippet
-│ ├─ profile_nsys.bat # records Nsight Systems trace (.nsys-rep)
-│ ├─ export_nsys_csv.bat # creates SQLite, extracts CSVs, makes plot
-│ ├─ extract_from_sqlite.py # robust SQLite → CSV (kernels / CUDA APIs)
-│ ├─ plot_top10.py # renders results/nsys_csv/top10_kernels.png
-│ └─ gen_readme_snippet.py # builds results/nsys_csv/README_snippet.md
+│  ├─ run_all.bat
+│  ├─ profile_nsys.bat
+│  ├─ export_nsys_csv.bat
+│  ├─ extract_from_sqlite.py
+│  ├─ plot_top10.py
+│  ├─ gen_readme_snippet.py
+│  └─ clean_results.bat
 ├─ results/
-│ ├─ nsys_report.nsys-rep # Nsight Systems trace (large; gitignored)
-│ ├─ nsys_report.sqlite # SQLite DB (large; gitignored)
-│ └─ nsys_csv/
-│ ├─ gpukernsum.csv # kernel summary
-│ ├─ cudaapisum.csv # CUDA API summary (if schema present)
-│ ├─ top10_kernels.png # bar chart from gpukernsum.csv
-│ └─ README_snippet.md # mini section to paste into your README
+│  ├─ nsys_report.nsys-rep
+│  ├─ nsys_report.sqlite
+│  └─ nsys_csv/
+│     ├─ gpukernsum.csv
+│     ├─ cudaapisum.csv
+│     ├─ top10_kernels.png
+│     └─ README_snippet.md
 ├─ requirements.txt
-└─ README.md ← you are here
+└─ README.md
+</details> ```
 
 ---
 
@@ -53,7 +60,7 @@ training-profiler-nsight/
   If nsys isn’t on PATH, the scripts call it via a full path—no global changes needed.
 
 ---
-## Quick start (Windows 11)
+## Quick Start (Windows 11)
 
 From the repo root in PowerShell:
 
@@ -65,7 +72,7 @@ pip install -r requirements.txt
 # Install CUDA PyTorch if you haven't yet:
 pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu121
 
-# 2) One-click: clean + profile + export
+# 2) One-Click: Clean + Profile + Export
 .\scripts\run_all.bat
 
 What you’ll get:
@@ -79,7 +86,7 @@ If you want WDDM/CPU context-switch traces, start PowerShell as Administrator be
 
 ---
 
-## Manual run (if you prefer)
+## Manual Run
 
 # Activate venv
 .\.venv\Scripts\Activate.ps1
@@ -94,7 +101,7 @@ Open the timeline in Nsight Systems GUI: File → Open… → results\nsys_repor
 
 ---
 
-## Customizing the workload
+## Customizing the Workload
 
 run_all.bat forwards extra flags to the Python training script (via profile_nsys.bat). Examples:
 # Larger batch and sequence to stress kernels
@@ -113,7 +120,7 @@ The training loop accepts:
 
 ---
 
-## How it works
+## How It Works
 
 src/train.py is a small Transformer-style model using NVTX ranges for the major phases.
 
@@ -150,7 +157,7 @@ This flow is resilient across Windows Nsight releases that generate .nsys-rep an
 
 ---
 
-## Troubleshooting (quick)
+## Troubleshooting (Quick)
 
 CUDA available: False in Python
 You installed a CPU-only PyTorch. Reinstall a CUDA wheel (cu121/124/118) and confirm nvidia-smi works.
@@ -169,7 +176,7 @@ Start PowerShell “Run as administrator” to enable those traces, or ignore th
 
 ---
 
-## Git tips
+## Git Tips
 
 Suggested .gitignore keeps large artifacts out of the repo:
 
