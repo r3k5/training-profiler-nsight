@@ -2,7 +2,4 @@ __pycache__/
 *.pyc
 .venv/
 .env/
-results/*.nsys-rep
-results/*.qdrep
-results/*.sqlite
-results/_stats_*.txt
+/results/
