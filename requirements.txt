@@ -1,0 +1,7 @@
+torch>=2.3
+numpy>=1.26
+pandas>=2.2
+matplotlib>=3.8
+tqdm>=4.66
+nvtx>=0.2
+rich>=13.7
