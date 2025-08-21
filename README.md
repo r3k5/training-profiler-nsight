@@ -43,7 +43,8 @@ training-profiler-nsight/
 │     └─ README_snippet.md
 ├─ requirements.txt
 └─ README.md
-</details> ```
+```
+</details>
 
 ---
 
